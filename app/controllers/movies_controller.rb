@@ -3,14 +3,17 @@ class MoviesController < ApplicationController
 
   # GET /movies
   def index
+    # binding.pry
     @movies = Movie.all 
+    
 
     render json: @movies, except: [:created_at, :updated_at]
   end
 
   # GET /movies/1
   def show
-    render json: @movie
+    
+    render json: @movie 
   end
 
   # POST /movies
@@ -36,6 +39,12 @@ class MoviesController < ApplicationController
   # DELETE /movies/1
   def destroy
     @movie.destroy
+  end
+
+  def search
+    @movie = Movie.where("title LIKE ?", "%" + params[:searchterm] + "%")
+
+    render json: @movie
   end
 
   private
