@@ -1,5 +1,5 @@
 class MoviesController < ApplicationController
-  before_action :set_movie, only: [:show, :update, :destroy]
+  before_action :set_movie, only: [:update, :destroy]
 
   # GET /movies
   def index
@@ -12,7 +12,7 @@ class MoviesController < ApplicationController
 
   # GET /movies/1
   def show
-    # binding.pry
+    @movie = Movie.find_by(movie_id: params[:id])
     render json: @movie 
   end
 
