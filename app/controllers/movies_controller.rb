@@ -12,7 +12,7 @@ class MoviesController < ApplicationController
 
   # GET /movies/1
   def show
-    
+    # binding.pry
     render json: @movie 
   end
 
