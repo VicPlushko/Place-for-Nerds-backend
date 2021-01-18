@@ -10,15 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_09_175323) do
-
-  create_table "actors", force: :cascade do |t|
-    t.string "name"
-    t.integer "cast_id"
-    t.string "profile_path"
-    t.string "character"
-    t.integer "movie_id"
-  end
+ActiveRecord::Schema.define(version: 2021_01_18_184443) do
 
   create_table "movies", force: :cascade do |t|
     t.string "title"
