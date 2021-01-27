@@ -16,7 +16,7 @@ class ReviewsController < ApplicationController
   # POST /reviews
   def create
     @movie = Movie.find_by(movie_id: params[:movie_id])
-    @review = Review.new()
+    @review = Review.new(content: params[:content], movie_id: @movie.movie_id)
     
     if @review.save
       
