@@ -15,13 +15,16 @@ class ReviewsController < ApplicationController
 
   # POST /reviews
   def create
-    @review = Review.new(review_params)
-
+    @movie = Movie.find_by(movie_id: params[:movie_id])
+    @review = Review.new()
+    
     if @review.save
+      
       render json: @review, status: :created, location: @review
     else
       render json: @review.errors, status: :unprocessable_entity
     end
+    binding.pry
   end
 
   # PATCH/PUT /reviews/1
@@ -44,7 +47,6 @@ class ReviewsController < ApplicationController
       @review = Review.find(params[:id])
     end
 
-    # Only allow a trusted parameter "white list" through.
     def review_params
       params.require(:review).permit(:content, :movie_id)
     end
