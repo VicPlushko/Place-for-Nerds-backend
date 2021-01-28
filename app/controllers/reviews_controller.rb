@@ -16,13 +16,13 @@ class ReviewsController < ApplicationController
   # POST /reviews
   def create
     @movie = Movie.find_by(movie_id: params[:movie_id])
-    @review = Review.new(content: params[:content], movie_id: @movie.movie_id)
+    @review = @movie.reviews.new(content: params[:content], movie_id: @movie.movie_id)
     
     if @review.save
       
       render json: @review, status: :created, location: @review
     else
-      render json: @review.errors, status: :unprocessable_entity
+      render json: {error: "Unable to create review"}, status: :unprocessable_entity
     end
     binding.pry
   end
