@@ -24,7 +24,7 @@ class ReviewsController < ApplicationController
     else
       render json: {error: "Unable to create review"}, status: :unprocessable_entity
     end
-    binding.pry
+    # binding.pry
   end
 
   # PATCH/PUT /reviews/1
@@ -48,6 +48,6 @@ class ReviewsController < ApplicationController
     end
 
     def review_params
-      params.require(:review).permit(:content, :movie_id)
+      params.require(:review).permit(:id, :content, :movie_id)
     end
 end
