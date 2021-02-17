@@ -3,7 +3,7 @@ class MoviesController < ApplicationController
 
   def index
     # binding.pry
-    @movies = Movie.first(50)
+    @movies = Movie.all
     render json: @movies, except: [:created_at, :updated_at]
   end
 
