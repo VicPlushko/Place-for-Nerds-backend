@@ -15,8 +15,8 @@ class ReviewsController < ApplicationController
 
   # POST /reviews
   def create
-    @movie = Movie.find_by(movie_id: params[:movie_id])
-    @review = @movie.reviews.new(content: params[:content], movie_id: @movie.movie_id)
+    @review = Reviews.new(review_params)
+    
     
     if @review.save
       
@@ -48,6 +48,6 @@ class ReviewsController < ApplicationController
     end
 
     def review_params
-      params.require(:review).permit(:id, :content, :movie_id)
+      params.require(:review).permit(:id, :title, :content, :movie_id, :user_id)
     end
 end
