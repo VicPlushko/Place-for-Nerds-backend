@@ -1,5 +1,5 @@
 class ReviewsController < ApplicationController
-  before_action :set_review, only: [:show, :update, :destroy]
+  before_action :set_review, only: [:update, :destroy]
 
   # GET /reviews
   def index
@@ -10,6 +10,7 @@ class ReviewsController < ApplicationController
 
   # GET /reviews/1
   def show
+    @review = Review.find_by(params[:movie_id])
     render json: @review
   end
 
