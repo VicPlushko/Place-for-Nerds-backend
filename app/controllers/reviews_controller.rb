@@ -10,13 +10,14 @@ class ReviewsController < ApplicationController
 
   # GET /reviews/1
   def show
-    @review = Review.find_by(params[:movie_id])
+    @review = Review.where("movie_id = ?", params[:id])
+    # binding.pry
     render json: @review
   end
 
   # POST /reviews
   def create
-    @review = Reviews.new(review_params)
+    @review = Review.new(review_params)
     
     
     if @review.save
