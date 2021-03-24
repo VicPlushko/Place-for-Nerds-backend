@@ -15,14 +15,13 @@ class ApplicationController < ActionController::API
             begin
                 JWT.decode(token, 'my_secret', true, algorithm: 'HS256')
             rescue JWT::DecodeError
-                []
+                nil
             end
-        endd
+        end
     end
 
     def session_user
-        decoded_hash = decoded_token
-        if !decoded_hash.empty?
+        if decoded_token
             user_id = decoded_hash[0]['user_id']
             @user = User.find_by(id: user_id)
         else
