@@ -1,5 +1,4 @@
 class UsersController < ApplicationController
-    skip_before_action :require_login, only: [:create]
     
     def create
         @user = User.create(username: params[:username], email: params[:email], password: params[:password], review_id: params[:review_id])
