@@ -10,7 +10,6 @@ class UsersController < ApplicationController
         else
             render json: {error: @user.errors.full_messages}, status: :not_acceptable
         end
-        binding.pry
     end
 
     private

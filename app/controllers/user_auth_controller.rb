@@ -10,6 +10,7 @@ class UserAuthController < ApplicationController
         else
             render json: {failure: "Log in failed! Username or password invalid!"}
         end
+        binding.pry
     end
 
     def auto_login
