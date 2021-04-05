@@ -1,5 +1,6 @@
 class ReviewsController < ApplicationController
   before_action :set_review, only: [:update, :destroy]
+  before_action :require_login, only: [:create]
 
   # GET /reviews
   def index
