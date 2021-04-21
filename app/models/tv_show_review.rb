@@ -1,0 +1,2 @@
+class TvShowReview < ApplicationRecord
+end

@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :tv_show_reviews
   resources :reviews
   # resources :users, only: [:create]
   post "/register", to: "users#create"
