@@ -10,6 +10,7 @@ class TvShowReviewsController < ApplicationController
 
   # GET /tv_show_reviews/1
   def show
+    @tv_show_review = TvShowReview.where("show_id = ?", params[:id])
     render json: @tv_show_review
   end
 
