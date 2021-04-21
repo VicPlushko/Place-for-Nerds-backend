@@ -1,5 +1,5 @@
 class TvShowReviewsController < ApplicationController
-  before_action :set_tv_show_review, only: [:show, :update, :destroy]
+  before_action :set_tv_show_review, only: [:update, :destroy]
 
   # GET /tv_show_reviews
   def index
@@ -47,6 +47,6 @@ class TvShowReviewsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def tv_show_review_params
-      params.require(:tv_show_review).permit(:title, :content, :show_id, :user_id)
+      params.require(:tv_show_review).permit(:id, :title, :content, :show_id, :user_id)
     end
 end
